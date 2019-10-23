@@ -1,0 +1,60 @@
+.bb{
+  background:black !important;
+}
+
+.bBord{
+  border-bottom:5px solid blue;
+}
+.w100{
+  width:100%;
+}
+.f40px{
+  font-size: 40px;
+
+}
+.mt5{
+  margin-top: 5% !important;
+}
+.mt2_5{
+  margin-top: 2.5% !important;
+}
+.c45{
+    color:#34cceb !important;
+}
+.ml5{
+  margin-left:5%;
+
+}
+.ml10{
+  margin-left:6%;
+
+}
+.ml25{
+  margin-left: 25%;
+}
+.w50{
+  width:50%;
+}
+.blB{
+  border:2px solid blue;
+}
+.pb100px{
+  padding-bottom: 100px;
+}
+
+.cw{
+  color:white !important;
+}
+.center{
+  text-align: center;
+}
+.gr{
+  color:grey;
+}
+
+.pb25px{
+  padding-bottom:25px;
+}
+.pb50px{
+  padding-bottom:50px;
+}
