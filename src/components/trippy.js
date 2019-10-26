@@ -8,14 +8,22 @@ class  Trippy  extends React.Component {
     super(props);
     this.state = {
       styleOne:{},
-      styleTwo:{}
+      styleTwo:{},
+      background:"rb(00,39,9)"
     }
   }
 
   onMouseMove = (event) => {
+    var xAxis = event.pageX;
+    var yAxis = event.pageY;
+    console.log(xAxis,yAxis);
+    var color = `rb(00,${xAxis},${yAxis})`;
+    console.log(color);
+
     this.setState({
       styleOne: this.transform(-event.clientX / event.clientY),
-      styleTwo: this.transform(event.clientX / event.clientY)
+      styleTwo: this.transform(event.clientX / event.clientY),
+      background:`rb(00,${xAxis},${yAxis})`
     })
   }
 
@@ -27,9 +35,9 @@ class  Trippy  extends React.Component {
 
 
   render(){
-  
+    console.log(this.state.background);
       return (
-        <div className="bb " onMouseMove = {(e)=>this.onMouseMove(e)}>
+        <div style ={{backgroundColor:this.state.background}} onMouseMove = {(e)=>this.onMouseMove(e)}>
           <div className="parent">
             <div className="panel" onMouseMove = {(e)=>this.onMouseMove(e)} style={this.state.styleOne}/>
             <div className="panel panel2" onMouseMove = {(e)=>this.onMouseMove(e)}style={this.state.styleTwo}/>

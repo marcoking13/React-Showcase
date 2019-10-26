@@ -65,15 +65,34 @@
 }
 
 
+@keyframes changeB{
+  0%{
+    background:black;
+  }
+  40%{
+    background: purple;
+  }
+  60%{
+    background:violet;
+  }
+  80%{
+    background: navy;
+  }
+  100%{
+    background:black
+  }
+}
+
+.changeB{
+  animation: changeB 20s ease-in-out infinite;
+}
 
 .panel2{
+
   position: relative;
   bottom:200px;
 }
 
-body{
-  background:black;
-}
 
 .o{
   opacity:0;

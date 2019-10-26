@@ -19,7 +19,11 @@ class CommentBox extends React.Component {
                   this.props.setComment(e.target.value);
                 }}
             />
-            <button onClick = {(event)=>{event.preventDefault();this.props.addComment(this.props.commentCurrent)}}className="submit o"></button>
+            <button
+            onClick = {
+              (event)=>{
+                event.preventDefault();this.props.addComment(this.props.commentCurrent)
+              }}className="submit o"></button>
           </form>
         </div>
       </div>
