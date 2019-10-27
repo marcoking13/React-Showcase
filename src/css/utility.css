@@ -12,10 +12,27 @@
   font-size: 40px;
 
 }
+.turnBold:hover{
+  border: red 5px solid !important;
+
+}
+.turnBold:hover > p{
+  color: red !important;
+  font-weight: bold;
+}
+.bWW{
+  border:white 5px solid
+}
 .container-fluid{
   padding-left:0;
   padding-right:0;
 
+}
+.h100px{
+  height:100px;
+}
+.pl20px{
+  padding-left:20px;
 }
 .mt5{
   margin-top: 5% !important;

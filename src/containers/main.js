@@ -15,6 +15,7 @@ import Characters from "./../config/characters.js";
 
 import Trippy from "./../components/trippy.js";
 import Comment from "./../components/comments.js";
+import Calculator from "./../components/calculator.js";
 import CountdownDisplay from "./../components/countdown_display.js";
 import CountdownSet from "./../components/countdown_set.js";
 import CommentBox from "./../components/comment_box.js";
@@ -233,6 +234,11 @@ class  Main extends React.Component {
                 <h1 className="cw text-center mt2_5">Countdown</h1>
                 <CountdownDisplay  StopCountDown = {this.StopCountDown} changeMinutes = {this.changeMinutes} minutes = {this.state.minutes} seconds = {this.state.seconds} changeSeconds = {this.changeSeconds} />
                 <CountdownSet CountDown = {this.CountDown}  StopCountDown = {this.ResetCountDown}/>
+              </div>
+
+              <div className="bBord pb25px ">
+                <h1 className="cw text-center mt2_5">Calculator</h1>
+                <Calculator />
               </div>
 
 
