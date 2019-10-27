@@ -4,6 +4,7 @@ import faker from "faker";
 import update from 'immutability-helper';
 import YTSearch from "youtube-api-search";
 import _ from "lodash";
+import axios from "axios";
 
 
 import "./../css/main.css";
@@ -20,6 +21,8 @@ import GoogleMaps from "./../components/google_maps.js";
 import ToDoList from "./../components/to_do_list.js";
 import ToDo from "./../components/to_do.js";
 import VideoSearch from "./../components/video_search.js";
+import ImageSearch from "./../components/image_search.js";
+import ImageResults from "./../components/image_results.js";
 import VideoDetail from "./../components/video_detail.js";
 import VideoList from "./../components/video_list.js";
 const api_key = "AIzaSyAsDpdAN9gA2TJl_Vi5nHMcyn2fNqWhF94";
@@ -34,6 +37,8 @@ class  Main extends React.Component {
     super(props);
     this.state = {
       commentCurrent:"",
+      imageTerm:"",
+      images:[],
       comments:[
         "Nice Job!"
       ],
@@ -52,13 +57,15 @@ class  Main extends React.Component {
     this.setVidTerm = this.setVidTerm.bind(this);
     this.addDo = this.addDo.bind(this);
     this.setCharacter = this.setCharacter.bind(this);
+    this.setImageTerm = this.setImageTerm.bind(this);
+    this.SearchImage = this.SearchImage.bind(this);
     this.videoSearch = this.videoSearch.bind(this);
     this.PlayVideo = this.PlayVideo.bind(this);
+    this.FormSubmit = this.FormSubmit.bind(this);
     this.removeObjFromTodo = this.removeObjFromTodo.bind(this);
 
     this.videoSearch("Mario");
   }
-
 
   videoSearch(term){
     YTSearch({key:api_key,term:term},((videos)=>{
@@ -78,6 +85,21 @@ class  Main extends React.Component {
     this.setState({currentVid:vid});
   }
 
+  FormSubmit(e){
+    e.preventDefault();
+    console.log(this.state.images)
+    axios.get("http://api.unsplash.com/search/photos?client_id=1627e05b4b3b25cefb92519e0f303950a2c1d3f11087abf755a286fc2e36eafa"+"&query="+this.state.imageTerm).then((r)=>{this.setState({images:r.data.results})});
+  }
+
+  setImageTerm(e){
+    var term = e.target.value;
+    this.setState({imageTerm:term});
+  }
+
+  SearchImage(images){
+    this.setState({images:images});
+  }
+
   setCharacter(currentCharacter){
       this.setState({currentCharacter:currentCharacter})
   }
@@ -89,13 +111,9 @@ class  Main extends React.Component {
     })});
   }
 
-
-
   setDo(todo){
     this.setState({currentToDo:todo})
   }
-
-
 
   renderComments(){
     return this.state.comments.map((comment)=>{
@@ -108,8 +126,6 @@ class  Main extends React.Component {
     this.setState({commentCurrent:comment});
   }
 
-
-
   addComment(comment){
     this.setState({ comments: [...this.state.comments, comment] })
   }
@@ -120,13 +136,10 @@ class  Main extends React.Component {
 
   render(){
 
-    console.log(this.state.vids);
-
       return (
         <div className="container-fluid " >
           <div className="bBord w100 changeB">
             <h2 className="title c45 text-center  mt2_5 ">React Showcase</h2>
-
               <Trippy />
             </div>
             <br />
@@ -152,7 +165,11 @@ class  Main extends React.Component {
               <CurrentCharacter currentCharacter = {this.state.currentCharacter} />
             </div>
 
-
+              <div className="bBord pb25px ">
+                <h1 className="cw text-center mt2_5">Image Search</h1>
+                  <ImageSearch FormSubmit = {this.FormSubmit} setImageTerm = {this.setImageTerm} imageTerm = {this.state.imageTerm}/>
+                  <ImageResults images = {this.state.images}/>
+              </div>
 
 
             <div className="bBord pb25px">

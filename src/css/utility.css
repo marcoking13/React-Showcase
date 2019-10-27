@@ -12,8 +12,16 @@
   font-size: 40px;
 
 }
+.container-fluid{
+  padding-left:0;
+  padding-right:0;
+}
 .mt5{
   margin-top: 5% !important;
+}
+.stock{
+  height:300px;
+
 }
 .b03{
   background:#03c6fc !important;

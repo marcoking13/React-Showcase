@@ -70,13 +70,13 @@
     background:black;
   }
   40%{
-    background: purple;
+    background: #421ac7;
   }
   60%{
-    background:violet;
+    background:#4032a8;
   }
   80%{
-    background: navy;
+    background: #162194;
   }
   100%{
     background:black
@@ -84,7 +84,7 @@
 }
 
 .changeB{
-  animation: changeB 20s ease-in-out infinite;
+  animation: changeB 60s ease-in-out infinite;
 }
 
 .panel2{
