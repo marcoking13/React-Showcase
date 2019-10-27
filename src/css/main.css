@@ -104,3 +104,10 @@
   border-radius:5px;
   color:white;
 }
+
+.clockContainer{
+  border:2px solid red;
+  border-radius:5px;
+  padding-top:20px;
+  padding-bottom:20px;
+}

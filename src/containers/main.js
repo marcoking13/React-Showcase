@@ -8,12 +8,15 @@ import axios from "axios";
 
 
 import "./../css/main.css";
+
 import "./../css/utility.css";
 
 import Characters from "./../config/characters.js";
 
 import Trippy from "./../components/trippy.js";
 import Comment from "./../components/comments.js";
+import CountdownDisplay from "./../components/countdown_display.js";
+import CountdownSet from "./../components/countdown_set.js";
 import CommentBox from "./../components/comment_box.js";
 import CharacterSelection from "./../components/character_selection.js";
 import CurrentCharacter from "./../components/current_character.js";
@@ -48,7 +51,9 @@ class  Main extends React.Component {
       currentToDo:null,
       currentVid:null,
       vids:[],
-      vidTerm:""
+      vidTerm:"",
+      minutes:10,
+      seconds:55
     }
 
     this.addComment = this.addComment.bind(this);
@@ -58,10 +63,15 @@ class  Main extends React.Component {
     this.addDo = this.addDo.bind(this);
     this.setCharacter = this.setCharacter.bind(this);
     this.setImageTerm = this.setImageTerm.bind(this);
-    this.SearchImage = this.SearchImage.bind(this);
+    this.SetImages = this.SetImages.bind(this);
     this.videoSearch = this.videoSearch.bind(this);
     this.PlayVideo = this.PlayVideo.bind(this);
-    this.FormSubmit = this.FormSubmit.bind(this);
+    this.CountDown = this.CountDown.bind(this);
+    this.ResetCountDown = this.ResetCountDown.bind(this);
+    this.changeMinutes = this.changeMinutes.bind(this);
+    this.changeSeconds = this.changeSeconds.bind(this);
+
+    this.ImageSearch = this.ImageSearch.bind(this);
     this.removeObjFromTodo = this.removeObjFromTodo.bind(this);
 
     this.videoSearch("Mario");
@@ -77,6 +87,62 @@ class  Main extends React.Component {
     }))
   }
 
+  CountDown(){
+    var counter = 0;
+
+      this.countdownInterval = setInterval(()=>{
+
+        if(this.state.seconds <= 0 && this.state.minutes > 0){
+          this.setState({
+            seconds:59,
+            minutes: this.state.minutes - 1
+          })
+        }
+        else if(this.state.seconds <= 0 && this.state.minutes <= 0){
+            clearInterval(this.countdownInterval);
+            this.setState({
+              seconds:0,
+              minutes: 0
+            })
+        }
+        else{
+          this.setState({
+            seconds:this.state.seconds -1,
+            minutes: this.state.minutes
+          })
+        }
+      },1000);
+
+  }
+
+
+  componentDidMount(){
+    this.ImageSearch("Dog");
+  }
+
+
+
+
+
+
+
+  StopCountDown(){
+    clearInterval(this.countdownInterval);
+  }
+
+  ResetCountDown(){
+    clearInterval(this.countdownInterval);
+    this.setState({minutes:0,seconds:0});
+  }
+
+  changeMinutes(min){
+    this.setState({minutes:min})
+  }
+
+  changeSeconds(sec){
+    this.setState({seconds:sec})
+  }
+
   setVidTerm(term){
     this.setState({vidTerm:term});
   }
@@ -85,10 +151,8 @@ class  Main extends React.Component {
     this.setState({currentVid:vid});
   }
 
-  FormSubmit(e){
-    e.preventDefault();
-    console.log(this.state.images)
-    axios.get("http://api.unsplash.com/search/photos?client_id=1627e05b4b3b25cefb92519e0f303950a2c1d3f11087abf755a286fc2e36eafa"+"&query="+this.state.imageTerm).then((r)=>{this.setState({images:r.data.results})});
+  ImageSearch(image){
+    axios.get("http://api.unsplash.com/search/photos?client_id=1627e05b4b3b25cefb92519e0f303950a2c1d3f11087abf755a286fc2e36eafa"+"&query="+image).then((r)=>{this.setState({images:r.data.results})});
   }
 
   setImageTerm(e){
@@ -96,7 +160,7 @@ class  Main extends React.Component {
     this.setState({imageTerm:term});
   }
 
-  SearchImage(images){
+  SetImages(images){
     this.setState({images:images});
   }
 
@@ -122,7 +186,6 @@ class  Main extends React.Component {
   }
 
   setComment(comment){
-    console.log(comment);
     this.setState({commentCurrent:comment});
   }
 
@@ -158,18 +221,27 @@ class  Main extends React.Component {
                 <ToDo  removeObjFromTodo = {this.removeObjFromTodo} addDo = {this.addDo} setDo = {this.setDo} currentToDo = {this.state.currentToDo} />
             </div>
 
-            <div className="bBord pb25px">
-              <h1 className="cw text-center mt2_5">Character Selection</h1>
-              <CharacterSelection characters = {this.state.characters} setCharacter = {this.setCharacter} />
-                <br />
-              <CurrentCharacter currentCharacter = {this.state.currentCharacter} />
-            </div>
 
               <div className="bBord pb25px ">
                 <h1 className="cw text-center mt2_5">Image Search</h1>
-                  <ImageSearch FormSubmit = {this.FormSubmit} setImageTerm = {this.setImageTerm} imageTerm = {this.state.imageTerm}/>
-                  <ImageResults images = {this.state.images}/>
+                  <ImageSearch ImageSearch = {this.ImageSearch} setImageTerm = {this.setImageTerm} imageTerm = {this.state.imageTerm}/>
+                  <ImageResults images = {this.state.images} />
               </div>
+
+
+              <div className="bBord pb25px ">
+                <h1 className="cw text-center mt2_5">Countdown</h1>
+                <CountdownDisplay  StopCountDown = {this.StopCountDown} changeMinutes = {this.changeMinutes} minutes = {this.state.minutes} seconds = {this.state.seconds} changeSeconds = {this.changeSeconds} />
+                <CountdownSet CountDown = {this.CountDown}  StopCountDown = {this.ResetCountDown}/>
+              </div>
+
+
+                <div className="bBord pb25px">
+                    <h1 className="cw text-center mt2_5">Character Selection</h1>
+                    <CharacterSelection characters = {this.state.characters} setCharacter = {this.setCharacter} />
+                    <br />
+                    <CurrentCharacter currentCharacter = {this.state.currentCharacter} />
+                </div>
 
 
             <div className="bBord pb25px">

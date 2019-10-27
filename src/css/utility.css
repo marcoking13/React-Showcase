@@ -15,6 +15,7 @@
 .container-fluid{
   padding-left:0;
   padding-right:0;
+
 }
 .mt5{
   margin-top: 5% !important;
@@ -54,11 +55,31 @@
   margin-left:6%;
 
 }
+.no-style{
+  background:none !important;
+  border: none !important;
+}
+.no-style:focus{
+  background:none !important;
+  border: none !important;
+}
+.p0{
+  padding: 0;
+}
 .ml25{
   margin-left: 25%;
 }
+.text-right{
+  text-align: right;
+}
+.text-left{
+  text-align: left;
+}
 .w50{
   width:50%;
+}
+.bigText{
+  font-size: 45px;
 }
 .blB{
   border:2px solid blue;
