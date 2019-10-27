@@ -208,6 +208,14 @@ class  Main extends React.Component {
             </div>
             <br />
 
+            <div className="bBord pb25px">
+                <h1 className="cw text-center mt2_5">Character Selection</h1>
+                <CharacterSelection characters = {this.state.characters} setCharacter = {this.setCharacter} />
+                <br />
+                <CurrentCharacter currentCharacter = {this.state.currentCharacter} />
+            </div>
+
+
             <div className="bBord mt2_5 pb50px">
                 <h1 className="cw text-center mt2_5">Youtube Search</h1>
                 <VideoSearch videoSearch = {this.videoSearch} vidTerm = {this.state.vidTerm} setVidTerm = {this.setVidTerm} />
@@ -242,12 +250,6 @@ class  Main extends React.Component {
               </div>
 
 
-                <div className="bBord pb25px">
-                    <h1 className="cw text-center mt2_5">Character Selection</h1>
-                    <CharacterSelection characters = {this.state.characters} setCharacter = {this.setCharacter} />
-                    <br />
-                    <CurrentCharacter currentCharacter = {this.state.currentCharacter} />
-                </div>
 
 
             <div className="bBord pb25px">
