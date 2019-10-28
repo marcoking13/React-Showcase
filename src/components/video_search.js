@@ -6,6 +6,7 @@ class VideoSearch extends React.Component {
     return(
       <div className="row">
         <div className="col-1"/>
+
         <div className="col-10">
           <form>
             <input className="inputComment center w100" value = {this.props.vidTerm} placeholder= " What to do?"
@@ -14,16 +15,21 @@ class VideoSearch extends React.Component {
                   this.props.setVidTerm(e.target.value);
                 }}
             />
+
             <button
             onClick = {
               (event)=>{
                 event.preventDefault();this.props.videoSearch(this.props.vidTerm)
               }}className="submit o"></button>
           </form>
+
         </div>
+
       </div>
-    )
+    );
+
   }
+  
 }
 
 export default VideoSearch;

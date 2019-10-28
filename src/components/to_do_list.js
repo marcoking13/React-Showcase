@@ -1,16 +1,14 @@
 import React from "react";
 
-
-
 class ToDoList extends React.Component {
+
   renderList(){
     var listOrder = 1;
     var html = [];
     var blue;
+
     if(this.props.toDo){
-
       return this.props.toDo.map((toDo)=>{
-
           return(
             <li className={"list-group-item mt2_5 "+blue}>
 
@@ -18,26 +16,21 @@ class ToDoList extends React.Component {
 
                 <div className="col-6">
                     <h3 className="ml5">{toDo.item}</h3>
-                  </div>
-
-                  <div className="col-3"/>
-
-                  <div className="col-1">
-                    
-                  </div>
-                  <div className="col-1">
-                    <img className="w100 "  onClick  = {()=>{
-                      this.props.removeObjFromTodo(toDo);
-                    }}src = "images/x.png"/>
-                  </div>
-
-
-
-
                 </div>
 
-              </li>
-        );
+                <div className="col-3"/>
+                <div className="col-1"/>
+
+                <div className="col-1">
+                  <img className="w100 "  onClick  = {()=>{
+                    this.props.removeObjFromTodo(toDo);
+                  }} src = "images/x.png"/>
+                </div>
+
+              </div>
+
+            </li>
+          );
 
       });
 
@@ -55,7 +48,5 @@ class ToDoList extends React.Component {
     )
   }
 }
-
-
 
 export default ToDoList;

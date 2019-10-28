@@ -1,4 +1,5 @@
 module.exports =   [
+  
   {
     name:"Larry",
     image:"avatar1",

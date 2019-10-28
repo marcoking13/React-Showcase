@@ -5,7 +5,6 @@ import {GoogleApiWrapper} from 'google-maps-react';
 import {Map, Marker, google} from 'google-maps-react';
 import axios from 'axios';
 
-import "./../css/maps.css";
 
 
 

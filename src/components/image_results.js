@@ -1,17 +1,18 @@
 import React from "react";
 
-
-
 class ImageResults extends React.Component {
 
   renderImages(){
     return this.props.images.map((image)=>{
+
       return (
-          <div className="col-2">
+          <div className="col-2 p0 bBB turnRedB">
               <img className="w100 stock" src= {image.urls.regular}/>
           </div>
       )
-    })
+
+    });
+
   }
 
   render(){
@@ -22,6 +23,7 @@ class ImageResults extends React.Component {
           <ul className=" row">
               {this.renderImages()}
           </ul>
+
         </div>
       )
     }else{
@@ -29,7 +31,5 @@ class ImageResults extends React.Component {
     }
   }
 }
-
-
 
 export default ImageResults;

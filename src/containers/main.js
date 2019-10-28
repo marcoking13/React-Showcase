@@ -1,4 +1,3 @@
-
 import React from 'react';
 import faker from "faker";
 import update from 'immutability-helper';
@@ -6,39 +5,42 @@ import YTSearch from "youtube-api-search";
 import _ from "lodash";
 import axios from "axios";
 
-
 import "./../css/main.css";
-
 import "./../css/utility.css";
 
-import Characters from "./../config/characters.js";
-
-import Trippy from "./../components/trippy.js";
-import Comment from "./../components/comments.js";
 import Calculator from "./../components/calculator.js";
+
+import Comment from "./../components/comments.js";
+import CommentBox from "./../components/comment_box.js";
+
 import CountdownDisplay from "./../components/countdown_display.js";
 import CountdownSet from "./../components/countdown_set.js";
-import CommentBox from "./../components/comment_box.js";
+
+import Characters from "./../config/characters.js";
 import CharacterSelection from "./../components/character_selection.js";
 import CurrentCharacter from "./../components/current_character.js";
+
 import GoogleMaps from "./../components/google_maps.js";
-import ToDoList from "./../components/to_do_list.js";
-import ToDo from "./../components/to_do.js";
-import VideoSearch from "./../components/video_search.js";
+
 import ImageSearch from "./../components/image_search.js";
 import ImageResults from "./../components/image_results.js";
+
+import ToDoList from "./../components/to_do_list.js";
+import ToDo from "./../components/to_do.js";
+
+import Trippy from "./../components/trippy.js";
+
+import VideoSearch from "./../components/video_search.js";
 import VideoDetail from "./../components/video_detail.js";
 import VideoList from "./../components/video_list.js";
+
 const api_key = "AIzaSyAsDpdAN9gA2TJl_Vi5nHMcyn2fNqWhF94";
 
-
-
-
-
-class  Main extends React.Component {
+class Main extends React.Component {
 
   constructor(props){
     super(props);
+
     this.state = {
       commentCurrent:"",
       imageTerm:"",
@@ -76,16 +78,20 @@ class  Main extends React.Component {
     this.removeObjFromTodo = this.removeObjFromTodo.bind(this);
 
     this.videoSearch("Mario");
+    this.ImageSearch("Night");
+
   }
 
   videoSearch(term){
     YTSearch({key:api_key,term:term},((videos)=>{
+
       this.setState({
           vids:videos,
           currentVid:videos[0]
         });
 
-    }))
+    }));
+
   }
 
   CountDown(){
@@ -97,35 +103,28 @@ class  Main extends React.Component {
           this.setState({
             seconds:59,
             minutes: this.state.minutes - 1
-          })
+          });
         }
+
         else if(this.state.seconds <= 0 && this.state.minutes <= 0){
             clearInterval(this.countdownInterval);
             this.setState({
               seconds:0,
               minutes: 0
-            })
+            });
         }
+
         else{
           this.setState({
             seconds:this.state.seconds -1,
             minutes: this.state.minutes
-          })
+          });
+
         }
+
       },1000);
 
   }
-
-
-  componentDidMount(){
-    this.ImageSearch("Dog");
-  }
-
-
-
-
-
-
 
   StopCountDown(){
     clearInterval(this.countdownInterval);
@@ -153,7 +152,10 @@ class  Main extends React.Component {
   }
 
   ImageSearch(image){
-    axios.get("http://api.unsplash.com/search/photos?client_id=1627e05b4b3b25cefb92519e0f303950a2c1d3f11087abf755a286fc2e36eafa"+"&query="+image).then((r)=>{this.setState({images:r.data.results})});
+    axios.get("http://api.unsplash.com/search/photos?client_id=1627e05b4b3b25cefb92519e0f303950a2c1d3f11087abf755a286fc2e36eafa"+"&query="+image)
+    .then((r)=>{
+      this.setState({images:r.data.results});
+    });
   }
 
   setImageTerm(e){
@@ -166,14 +168,15 @@ class  Main extends React.Component {
   }
 
   setCharacter(currentCharacter){
-      this.setState({currentCharacter:currentCharacter})
+    this.setState({currentCharacter:currentCharacter})
   }
 
   removeObjFromTodo(obj) {
-    console.log(obj);
+
     this.setState({toDo: this.state.toDo.filter(function(nObj) {
         return nObj !== obj
     })});
+
   }
 
   setDo(todo){
@@ -195,17 +198,19 @@ class  Main extends React.Component {
   }
 
   addDo(newDo){
-      this.setState({ toDo: [...this.state.toDo, newDo] })
+    this.setState({ toDo: [...this.state.toDo, newDo] })
   }
 
   render(){
 
       return (
-        <div className="container-fluid " >
+        <div className="container-fluid">
+
           <div className="bBord w100 changeB">
             <h2 className="title c45 text-center  mt2_5 ">React Showcase</h2>
               <Trippy />
             </div>
+
             <br />
 
             <div className="bBord pb25px">
@@ -214,7 +219,6 @@ class  Main extends React.Component {
                 <br />
                 <CurrentCharacter currentCharacter = {this.state.currentCharacter} />
             </div>
-
 
             <div className="bBord mt2_5 pb50px">
                 <h1 className="cw text-center mt2_5">Youtube Search</h1>
@@ -231,42 +235,37 @@ class  Main extends React.Component {
             </div>
 
 
-              <div className="bBord pb25px ">
-                <h1 className="cw text-center mt2_5">Image Search</h1>
-                  <ImageSearch ImageSearch = {this.ImageSearch} setImageTerm = {this.setImageTerm} imageTerm = {this.state.imageTerm}/>
-                  <ImageResults images = {this.state.images} />
-              </div>
-
-
-              <div className="bBord pb25px ">
-                <h1 className="cw text-center mt2_5">Countdown</h1>
-                <CountdownDisplay  StopCountDown = {this.StopCountDown} changeMinutes = {this.changeMinutes} minutes = {this.state.minutes} seconds = {this.state.seconds} changeSeconds = {this.changeSeconds} />
-                <CountdownSet CountDown = {this.CountDown}  StopCountDown = {this.ResetCountDown}/>
-              </div>
-
-              <div className="bBord pb25px ">
-                <h1 className="cw text-center mt2_5">Calculator</h1>
-                <Calculator />
-              </div>
-
-
-
+            <div className="bBord pb25px">
+              <h1 className="cw text-center mt2_5">Image Search</h1>
+                <ImageSearch ImageSearch = {this.ImageSearch} setImageTerm = {this.setImageTerm} imageTerm = {this.state.imageTerm}/>
+                <ImageResults images = {this.state.images} />
+            </div>
 
             <div className="bBord pb25px">
-                <h1 className="cw mt2_5 text-center">Comment Section</h1>
-                <br />
-              <div className="row ">
+              <h1 className="cw text-center mt2_5">Countdown</h1>
+              <CountdownDisplay  StopCountDown = {this.StopCountDown} changeMinutes = {this.changeMinutes} minutes = {this.state.minutes} seconds = {this.state.seconds} changeSeconds = {this.changeSeconds} />
+              <CountdownSet CountDown = {this.CountDown}  StopCountDown = {this.ResetCountDown}/>
+            </div>
+
+            <div className="bBord pb25px">
+              <h1 className="cw text-center mt2_5">Calculator</h1>
+              <Calculator />
+            </div>
+
+            <div className="bBord pb25px">
+              <h1 className="cw mt2_5 text-center">Comment Section</h1>
+              <br />
+              <div className="row">
                 {this.renderComments()}
               </div>
               <CommentBox commentCurrent = {this.state.commentCurrent} addComment = {this.addComment} setComment = {this.setComment} />
             </div>
 
-
-
-
         </div>
       );
+
     }
+
 }
 
 export default Main;
