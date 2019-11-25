@@ -1,7 +1,7 @@
 import React from 'react';
 
-import "./../css/main.css";
-import "./../css/utility.css"
+import "./../../css/main.css";
+import "./../../css/utility.css"
 
 class  Trippy  extends React.Component {
   constructor(props){
@@ -41,10 +41,10 @@ class  Trippy  extends React.Component {
         <div style ={{backgroundColor:this.state.background}} onMouseMove = {(e)=>this.onMouseMove(e)}>
 
           <div className="parent">
-            <div className="panel" onMouseMove = {(e)=>this.onMouseMove(e)} style={this.state.styleOne}/>
-            <div className="panel panel2" onMouseMove = {(e)=>this.onMouseMove(e)}style={this.state.styleTwo}/>
+            <div className="panel mt5 br50 cover" onMouseMove = {(e)=>this.onMouseMove(e)} style={this.state.styleOne}/>
+            <div className="panel mt5 br50 cover posRel moveDown200px" onMouseMove = {(e)=>this.onMouseMove(e)}style={this.state.styleTwo}/>
           </div>
-          
+
         </div>
       );
     }

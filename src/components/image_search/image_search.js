@@ -15,7 +15,7 @@ class ImageSearch extends React.Component {
             this.props.ImageSearch(this.props.imageTerm);
           }}>
 
-            <input value = {this.props.imageTerm} onChange = {this.props.setImageTerm} className="inputComment center w100"  placeholder= " Search Images"  />
+            <input value = {this.props.imageTerm} onChange = {this.props.setImageTerm} className="bb cw br5px  p10px center w100"  placeholder= " Search Images"  />
             <button className="submit o"></button>
 
           </form>

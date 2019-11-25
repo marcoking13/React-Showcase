@@ -9,7 +9,7 @@ class VideoSearch extends React.Component {
 
         <div className="col-10">
           <form>
-            <input className="inputComment center w100" value = {this.props.vidTerm} placeholder= " What to do?"
+            <input className="inputComment center w100" value = {this.props.vidTerm} placeholder= " Search a video"
               onChange = {
                 (e)=>{
                   this.props.setVidTerm(e.target.value);
@@ -29,7 +29,7 @@ class VideoSearch extends React.Component {
     );
 
   }
-  
+
 }
 
 export default VideoSearch;

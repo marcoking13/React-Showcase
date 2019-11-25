@@ -9,9 +9,61 @@
 .w100{
   width:100%;
 }
+.br50{
+    border-radius: 50%;
+}
+.cover{
+  background-size: cover;
+}
+.moveDown200px{
+  bottom:200px;
+}
+
+
+.o{
+  opacity:0;
+}
+.Lato{
+    font-family: "Lato";
+}
+.f70px{
+  font-size: 70px !important;
+}
+
+.changeB{
+  animation: changeB 10s ease-in-out infinite;
+}
+
+.c34{
+    color:#34cceb !important;
+}
+.ml5{
+    margin-left:5% !important;
+}
+
+.mt1{
+  margin-top: 1% !important;
+}
+
+.h300px{
+  height: 300px;
+}
 
 .f40px{
   font-size: 40px;
+}
+.bb{
+  background: black;
+}
+.cw{
+  color:white;
+}
+
+.br5px{
+  border-radius:5px;
+}
+.p10px{
+  padding: 10px;
 }
 
 .turnBold:hover{
@@ -43,6 +95,16 @@
 .h100px{
   height:100px;
 }
+.posRel{
+  position: relative;
+}
+.bBB{
+    border:2px solid black;
+}
+.mt5{
+  margin-top: 5%;
+}
+
 
 .pl20px{
   padding-left:20px;
@@ -152,4 +214,37 @@
 
 .pb50px{
   padding-bottom:50px;
+}
+
+/* Animations */
+
+@keyframes goUp{
+  0%{
+    bottom:0
+  }
+  100%{
+    bottom:10px;
+  }
+}
+
+@keyframes goDown{
+  0%{
+    bottom:10px
+  }
+  100%{
+    bottom:0px;
+  }
+}
+
+@keyframes changeB{
+  0%{
+    background:black;
+  }
+  50%{
+    background:#0d0d0d
+  }
+
+  100%{
+    background:black
+  }
 }

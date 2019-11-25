@@ -6,8 +6,8 @@ class ImageResults extends React.Component {
     return this.props.images.map((image)=>{
 
       return (
-          <div className="col-2 p0 bBB turnRedB">
-              <img className="w100 stock" src= {image.urls.regular}/>
+          <div className="col-2 p0 ">
+              <img className="w100 h300px " src= {image.urls.regular}/>
           </div>
       )
 
@@ -20,7 +20,7 @@ class ImageResults extends React.Component {
       return(
         <div className="row">
 
-          <ul className=" row">
+          <ul className=" row p0">
               {this.renderImages()}
           </ul>
 

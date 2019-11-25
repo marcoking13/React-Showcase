@@ -8,31 +8,31 @@ import axios from "axios";
 import "./../css/main.css";
 import "./../css/utility.css";
 
-import Calculator from "./../components/calculator.js";
+import Calculator from "./../components/calculator/calculator.js";
 
-import Comment from "./../components/comments.js";
-import CommentBox from "./../components/comment_box.js";
+import Comment from "./../components/comments/comments.js";
+import CommentBox from "./../components/comments/comment_box.js";
 
-import CountdownDisplay from "./../components/countdown_display.js";
-import CountdownSet from "./../components/countdown_set.js";
+import CountdownDisplay from "./../components/countdown/countdown_display.js";
+import CountdownSet from "./../components/countdown/countdown_set.js";
 
 import Characters from "./../config/characters.js";
-import CharacterSelection from "./../components/character_selection.js";
-import CurrentCharacter from "./../components/current_character.js";
+import CharacterSelection from "./../components/character_selection/character_selection.js";
+import CurrentCharacter from "./../components/character_selection/current_character.js";
 
-import GoogleMaps from "./../components/google_maps.js";
+import GoogleMaps from "./../components/google_maps/google_maps.js";
 
-import ImageSearch from "./../components/image_search.js";
-import ImageResults from "./../components/image_results.js";
+import ImageSearch from "./../components/image_search/image_search.js";
+import ImageResults from "./../components/image_search/image_results.js";
 
-import ToDoList from "./../components/to_do_list.js";
-import ToDo from "./../components/to_do.js";
+import ToDoList from "./../components/to_do_list/to_do_list.js";
+import ToDo from "./../components/to_do_list/to_do.js";
 
-import Trippy from "./../components/trippy.js";
+import Trippy from "./../components/trippy/trippy.js";
 
-import VideoSearch from "./../components/video_search.js";
-import VideoDetail from "./../components/video_detail.js";
-import VideoList from "./../components/video_list.js";
+import VideoSearch from "./../components/video/video_search.js";
+import VideoDetail from "./../components/video/video_detail.js";
+import VideoList from "./../components/video/video_list.js";
 
 const api_key = "AIzaSyAsDpdAN9gA2TJl_Vi5nHMcyn2fNqWhF94";
 
@@ -207,7 +207,7 @@ class Main extends React.Component {
         <div className="container-fluid">
 
           <div className="bBord w100 changeB">
-            <h2 className="title c45 text-center  mt2_5 ">React Showcase</h2>
+            <h2 className="text-center c34 f70px Lato mt5 ml5 c45 text-center  mt2_5 ">React Showcase</h2>
               <Trippy />
             </div>
 

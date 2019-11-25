@@ -15,10 +15,10 @@ class CommentBox extends React.Component {
                 }}
             />
             <button
-            onClick = {
-              (event)=>{
-                event.preventDefault();this.props.addComment(this.props.commentCurrent)
-              }}className="submit o"></button>
+              onClick = {
+                (event)=>{
+                  event.preventDefault();this.props.addComment(this.props.commentCurrent)
+                }}className="submit o"></button>
           </form>
 
         </div>

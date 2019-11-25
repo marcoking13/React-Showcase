@@ -2,7 +2,7 @@ import React from "react";
 
 import faker from "faker"
 
-import "./../css/utility.css";
+import "./../../css/utility.css";
 
 export default class Comments extends React.Component{
 
