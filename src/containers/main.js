@@ -34,6 +34,8 @@ import VideoSearch from "./../components/video/video_search.js";
 import VideoDetail from "./../components/video/video_detail.js";
 import VideoList from "./../components/video/video_list.js";
 
+import GooglePage from "./../components/google_maps/google_page.js";
+
 const api_key = "AIzaSyAsDpdAN9gA2TJl_Vi5nHMcyn2fNqWhF94";
 
 class Main extends React.Component {
@@ -250,6 +252,11 @@ class Main extends React.Component {
             <div className="bBord pb25px">
               <h1 className="cw text-center mt2_5">Calculator</h1>
               <Calculator />
+            </div>
+
+            <div className="bBord pb25px">
+              <h1 className="cw text-center mt2_5">Google Maps</h1>
+              <GooglePage />
             </div>
 
             <div className="bBord pb25px">

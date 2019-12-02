@@ -13,23 +13,13 @@ class GoogleMaps extends React.Component {
 
 
   render(){
-    return(
-    <div>
-      <input className="form-control bb cw text-center" value = {this.props.location} onChange = {(e)=>{this.setLocation(e.target.value)}}/>
-      <div className="container-fluid" style={{width:"1000px",height:"1000px"}}>
-          <Map  google = {google} center= {{lat:2,lng:2}} zoom = {14}>
-               <Marker icon = {{url:"assets/images/ringer.gif",scaledSize: new google.maps.Size(50,50)}} position={{lat:2, lng:2}} />
-          </Map>
-      </div>
-    </div>
+      return null
     )
   }
 
 
 }
 
-export default GoogleApiWrapper(
-  {
-    apiKey: "AIzaSyC39c6JQfUTYtacJlXTKRjIRVzebGpZ-GM",
-    LoadingContainer: <div />
-  })(GoogleMaps);
+
+
+export default GoogleMaps;
