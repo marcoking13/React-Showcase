@@ -7,7 +7,7 @@ class ImageResults extends React.Component {
 
       return (
           <div className="col-2 p0 ">
-              <img className="w100 h300px " src= {image.urls.regular}/>
+              <img className="w100 h300px "  key = {image.urls.regular} src= {image.urls.regular}/>
           </div>
       )
 

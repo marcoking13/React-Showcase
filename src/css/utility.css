@@ -12,14 +12,30 @@
 .br50{
     border-radius: 50%;
 }
+.turnW:hover{
+  color:white;
+}
+.bigger{
+  font-size:17px;
+}
 .cover{
   background-size: cover;
 }
 .moveDown200px{
   bottom:200px;
 }
-
-
+.pb10px{
+  padding-bottom: 10px;
+}
+.pt20px{
+  padding-top: 20px;
+}
+.none{
+  list-style-type: none;
+}
+.bold{
+  font-weight: bold;
+}
 .o{
   opacity:0;
 }

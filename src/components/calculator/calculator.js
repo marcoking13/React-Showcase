@@ -28,7 +28,7 @@ export default class Calculator extends React.Component {
 
       return numbers.map((numbers)=>{
         return(
-          <div onClick = {()=>{this.setEquation(numbers)}} className="bb col-3 p0  turnBold bWW">
+          <div key = {numbers} onClick = {()=>{this.setEquation(numbers)}} className="bb col-3 p0  turnBold bWW">
             <p className="cw bigText  text-center">{numbers}</p>
           </div>
         );

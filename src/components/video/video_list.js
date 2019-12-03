@@ -8,7 +8,7 @@ export default class VideoList extends React.Component {
       var image = vid.snippet.thumbnails.default.url;
 
       return (
-        <li className="list-group-item bb">
+        <li key = {image} className="list-group-item bb">
 
           <div className="row">
               <div className="col-1"/>
@@ -40,7 +40,7 @@ export default class VideoList extends React.Component {
             {this.renderVids()}
         </ul>
       )
-      
+
     }
 
 }

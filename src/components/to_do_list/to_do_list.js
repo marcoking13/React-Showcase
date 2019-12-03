@@ -10,7 +10,7 @@ class ToDoList extends React.Component {
     if(this.props.toDo){
       return this.props.toDo.map((toDo)=>{
           return(
-            <li className={"list-group-item mt2_5 "+blue}>
+            <li key = {toDo.item} className={"list-group-item mt2_5 "+blue}>
 
               <div className="row">
 

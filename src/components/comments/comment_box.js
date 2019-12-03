@@ -9,7 +9,7 @@ class CommentBox extends React.Component {
 
         <div className="col-6">
           <form>
-            <input className="inputComment  center w100" value = {this.props.commentCurrent} placeholder= " Type a comment"
+            <input className="inputComment  bb form-control cw center text-center w100" value = {this.props.commentCurrent} placeholder= " Type a comment"
               onChange = {(e)=>{
                   this.props.setComment(e.target.value);
                 }}
@@ -17,7 +17,8 @@ class CommentBox extends React.Component {
             <button
               onClick = {
                 (event)=>{
-                  event.preventDefault();this.props.addComment(this.props.commentCurrent)
+                  event.preventDefault();
+                  this.props.addComment(this.props.commentCurrent)
                 }}className="submit o"></button>
           </form>
 

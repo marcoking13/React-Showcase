@@ -6,7 +6,7 @@ export default class CharacterSelection extends React.Component {
   renderCharacters(){
       return this.props.characters.map((character)=>{
           return(
-            <div className="col-2 characterBox mt5 bBB posRel pb50px"
+            <div key = {character.image} className="col-2 characterBox mt5 bBB posRel pb50px"
               onClick = {()=>{
                   this.props.setCharacter(character);
                 }

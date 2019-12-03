@@ -36,7 +36,10 @@ import VideoList from "./../components/video/video_list.js";
 
 import GooglePage from "./../components/google_maps/google_page.js";
 
+import Footer from "./../components/footer/footnote.js";
+
 const api_key = "AIzaSyAsDpdAN9gA2TJl_Vi5nHMcyn2fNqWhF94";
+
 
 class Main extends React.Component {
 
@@ -267,7 +270,7 @@ class Main extends React.Component {
               </div>
               <CommentBox commentCurrent = {this.state.commentCurrent} addComment = {this.addComment} setComment = {this.setComment} />
             </div>
-
+            <Footer />
         </div>
       );
 
